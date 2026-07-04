@@ -1,0 +1,154 @@
+{
+  "langToggle": "EN",
+  "badge": "Quiz",
+  "introTitle1": "Metti alla prova",
+  "introTitle2": "mente",
+  "introTitle3": "la tua",
+  "introDesc": "10 domande su cultura generale, scienza e curiosità. Scegli la risposta giusta e scopri il tuo punteggio finale.",
+  "metaTime": "~3 minuti",
+  "metaQuestions": "10 domande",
+  "metaScore": "Punteggio finale",
+  "btnStart": "Inizia il quiz",
+  "btnNext": "Prossima domanda",
+  "btnResult": "Vedi risultato",
+  "btnMenu": "Menu",
+  "btnRestartMid": "Ricomincia",
+  "resultLabel": "Punteggio finale",
+  "labelCorrect": "Corrette",
+  "labelWrong": "Errate",
+  "labelPct": "Percentuale",
+  "btnRestart": "Riprova il quiz",
+  "correct": "✓ Risposta corretta!",
+  "msgs": [
+    [
+      0,
+      3,
+      "Niente panico — ogni quiz è una lezione! 📚"
+    ],
+    [
+      4,
+      5,
+      "Buona base di partenza. Con un po' di studio puoi fare molto meglio! 💪"
+    ],
+    [
+      6,
+      7,
+      "Ottimo risultato! Sei a un passo dall'eccellenza. 🎯"
+    ],
+    [
+      8,
+      9,
+      "Quasi perfetto! La tua cultura generale è davvero solida. 🌟"
+    ],
+    [
+      10,
+      10,
+      "Punteggio pieno! Sei imbattibile. 🏆"
+    ]
+  ],
+  "questions": [
+    {
+      "q": "Qual è la capitale dell'Australia?",
+      "options": [
+        "Sydney",
+        "Melbourne",
+        "Canberra",
+        "Brisbane"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "Quanti pianeti compongono il sistema solare?",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Chi ha dipinto la Cappella Sistina?",
+      "options": [
+        "Leonardo da Vinci",
+        "Raffaello",
+        "Michelangelo",
+        "Botticelli"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "In quale anno è caduto il Muro di Berlino?",
+      "options": [
+        "1987",
+        "1989",
+        "1991",
+        "1993"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Quale elemento chimico ha simbolo 'Au'?",
+      "options": [
+        "Argento",
+        "Rame",
+        "Oro",
+        "Alluminio"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "Qual è l'oceano più grande della Terra?",
+      "options": [
+        "Atlantico",
+        "Indiano",
+        "Artico",
+        "Pacifico"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "Chi ha scritto 'La Divina Commedia'?",
+      "options": [
+        "Francesco Petrarca",
+        "Dante Alighieri",
+        "Giovanni Boccaccio",
+        "Ludovico Ariosto"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Qual è la velocità della luce nel vuoto (approssimata)?",
+      "options": [
+        "200 000 km/s",
+        "299 792 km/s",
+        "350 000 km/s",
+        "150 000 km/s"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "In quale paese si trova il Machu Picchu?",
+      "options": [
+        "Cile",
+        "Colombia",
+        "Bolivia",
+        "Perù"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "Quante corde ha una chitarra classica standard?",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "answer": 2
+    }
+  ],
+  "wrongPrefix": "✗ La risposta corretta era:",
+  "questionLabel": "Domanda",
+  "of": "di"
+}

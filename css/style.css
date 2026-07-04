@@ -1,0 +1,486 @@
+/* ═══════════════════════════════════════════
+   Quiz App — css/style.css
+   ═══════════════════════════════════════════ */
+
+/* ── RESET & DESIGN TOKENS ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:       #F2F5F3;   /* page background */
+  --card:     #FFFFFF;   /* card surface */
+  --accent:   #25D366;   /* primary green (WhatsApp green) */
+  --accent-l: #1DAF54;   /* darker green — hover states & headings */
+  --text:     #111B17;   /* primary text */
+  --muted:    #7A8C83;   /* secondary / placeholder text */
+  --correct:  #25D366;   /* correct answer highlight */
+  --wrong:    #E05252;   /* wrong answer highlight */
+  --border:   #D9E5DF;   /* borders and neutral backgrounds */
+  --radius:   14px;      /* base border-radius */
+}
+
+/* ── BASE ── */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+/* ════════════════════════════════
+   NAVIGATION BAR (language toggle)
+   ════════════════════════════════ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 12px 24px;
+  background: rgba(242, 245, 243, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+}
+
+/* Language toggle pill button */
+.lang-btn {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 99px;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: border-color .18s, background .18s, color .18s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.lang-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent-l);
+}
+.lang-btn:focus-visible {
+  outline: 2px solid var(--accent-l);
+  outline-offset: 3px;
+}
+
+/* Globe icon inside the lang button */
+.lang-btn svg {
+  opacity: .6;
+}
+
+/* ════════════════════════════════
+   CARD
+   ════════════════════════════════ */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 580px;
+  padding: 40px 44px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, .08);
+  /* extra top margin so content clears the fixed navbar */
+  margin-top: 56px;
+}
+
+/* ════════════════════════════════
+   QUIZ ACTION BAR (menu / restart)
+   ════════════════════════════════ */
+
+/* Sits above the progress bar; aligns the two secondary buttons */
+.quiz-action-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+/* Ghost-style pill buttons — unobtrusive but clearly tappable */
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: 99px;
+  color: var(--muted);
+  font-family: 'Inter', sans-serif;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: border-color .18s, color .18s, background .18s;
+}
+.action-btn:hover {
+  border-color: var(--accent-l);
+  color: var(--accent-l);
+  background: rgba(37, 211, 102, .06);
+}
+.action-btn:focus-visible {
+  outline: 2px solid var(--accent-l);
+  outline-offset: 3px;
+}
+.action-btn svg {
+  flex-shrink: 0;
+}
+
+/* ════════════════════════════════
+   PROGRESS BAR
+   ════════════════════════════════ */
+.progress-wrap {
+  margin-bottom: 32px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 8px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.progress-bar {
+  height: 4px;
+  background: var(--border);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+/* The fill width is controlled via JS inline style */
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-l), var(--accent));
+  border-radius: 99px;
+  transition: width .45s cubic-bezier(.65, 0, .35, 1);
+}
+
+/* ════════════════════════════════
+   QUESTION
+   ════════════════════════════════ */
+/* Small numbered label above the question text */
+.question-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  color: var(--accent-l);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.question-text {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.15rem, 3vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 28px;
+}
+
+/* ════════════════════════════════
+   ANSWER OPTIONS
+   ════════════════════════════════ */
+.options {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.option {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: .95rem;
+  font-weight: 500;
+  padding: 14px 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .18s, background .18s, color .18s;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Letter badge (A / B / C / D) */
+.option-letter {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  border-radius: 6px;
+  background: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  transition: background .18s, color .18s;
+}
+
+/* Hover — only when the option is still enabled */
+.option:hover:not(:disabled) {
+  border-color: var(--accent-l);
+  background: rgba(37, 211, 102, .08);
+}
+.option:hover:not(:disabled) .option-letter {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* State: user has clicked this option */
+.option.selected {
+  border-color: var(--accent);
+  background: rgba(37, 211, 102, .12);
+}
+.option.selected .option-letter {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* State: this is the correct answer (revealed after any pick) */
+.option.correct {
+  border-color: var(--correct);
+  background: rgba(37, 211, 102, .12);
+  color: #116a33;
+}
+.option.correct .option-letter {
+  background: var(--correct);
+  color: #fff;
+}
+
+/* State: user picked this but it was wrong */
+.option.wrong {
+  border-color: var(--wrong);
+  background: rgba(224, 82, 82, .08);
+  color: var(--wrong);
+}
+.option.wrong .option-letter {
+  background: var(--wrong);
+  color: #fff;
+}
+
+.option:disabled {
+  cursor: default;
+}
+
+/* Shake animation — played on a wrong selection */
+@keyframes shake {
+  0%,  100% { transform: translateX(0); }
+  20%        { transform: translateX(-8px); }
+  40%        { transform: translateX(8px); }
+  60%        { transform: translateX(-5px); }
+  80%        { transform: translateX(5px); }
+}
+.shake {
+  animation: shake .35s ease;
+}
+
+/* ════════════════════════════════
+   INLINE FEEDBACK TEXT
+   ════════════════════════════════ */
+.feedback {
+  font-size: .88rem;
+  color: var(--muted);
+  min-height: 20px;
+  margin-bottom: 24px;
+  transition: opacity .2s;
+}
+/* Shown class reveals the feedback after an answer is picked */
+.feedback.show {
+  color: var(--text);
+}
+
+/* ════════════════════════════════
+   PRIMARY BUTTON
+   ════════════════════════════════ */
+.btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: .95rem;
+  font-weight: 600;
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: background .18s, transform .12s;
+  width: 100%;
+}
+.btn:hover         { background: var(--accent-l); }
+.btn:active        { transform: scale(.98); }
+.btn:disabled      { opacity: .4; cursor: default; transform: none; }
+.btn:focus-visible { outline: 2px solid var(--accent-l); outline-offset: 3px; }
+
+/* ════════════════════════════════
+   SCREEN MANAGEMENT
+   ════════════════════════════════ */
+/* All screens are hidden by default; JS adds .active to the visible one */
+.screen        { display: none; }
+.screen.active { display: block; }
+
+/* ════════════════════════════════
+   INTRO SCREEN
+   ════════════════════════════════ */
+.intro-badge {
+  display: inline-block;
+  background: rgba(37, 211, 102, .15);
+  color: var(--accent-l);
+  border-radius: 99px;
+  padding: 4px 14px;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.intro-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+/* Accent word inside the intro title */
+.intro-title .accent {
+  color: var(--accent-l);
+}
+
+.intro-desc {
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+/* Row of meta-info chips (duration, questions count, score) */
+.intro-meta {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: .85rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+.meta-item svg {
+  opacity: .6;
+}
+
+/* ════════════════════════════════
+   RESULT SCREEN
+   ════════════════════════════════ */
+/* Large gradient score display e.g. "8/10" */
+.result-score {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3.5rem, 12vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-l));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.result-label {
+  font-size: .95rem;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.result-msg {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 32px;
+  line-height: 1.4;
+}
+
+/* Three stat tiles: correct / wrong / percentage */
+.result-breakdown {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.breakdown-item {
+  flex: 1;
+  min-width: 100px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+.breakdown-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.breakdown-num.c      { color: var(--correct); }   /* correct count */
+.breakdown-num.w      { color: var(--wrong); }     /* wrong count */
+.breakdown-num.accent { color: var(--accent-l); }  /* percentage */
+.breakdown-lbl {
+  font-size: .78rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-top: 3px;
+}
+
+/* ════════════════════════════════
+   ACCESSIBILITY — focus ring
+   ════════════════════════════════ */
+.option:focus-visible {
+  outline: 2px solid var(--accent-l);
+  outline-offset: 3px;
+}
+
+/* ════════════════════════════════
+   RESPONSIVE — MEDIA QUERIES
+   ════════════════════════════════ */
+
+/* Tablet / large mobile */
+@media (max-width: 600px) {
+  .card       { padding: 28px 20px; }
+  .options    { gap: 8px; }
+  .option     { padding: 12px 14px; font-size: .9rem; }
+  .intro-meta { gap: 14px; }
+}
+
+/* Small mobile */
+@media (max-width: 360px) {
+  .card { padding: 22px 14px; }
+  .btn  { padding: 13px 20px; font-size: .9rem; }
+}
+
+/* Honour the OS-level "reduce motion" preference */
+@media (prefers-reduced-motion: reduce) {
+  .progress-fill { transition: none; }
+  .shake         { animation: none; }
+}

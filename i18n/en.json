@@ -1,0 +1,154 @@
+{
+  "langToggle": "IT",
+  "badge": "Quiz",
+  "introTitle1": "Put your",
+  "introTitle2": "mind",
+  "introTitle3": "to the test",
+  "introDesc": "10 questions on general knowledge, science and curiosities. Pick the right answer and discover your final score.",
+  "metaTime": "~3 minutes",
+  "metaQuestions": "10 questions",
+  "metaScore": "Final score",
+  "btnStart": "Start quiz",
+  "btnNext": "Next question",
+  "btnResult": "See result",
+  "btnMenu": "Menu",
+  "btnRestartMid": "Restart",
+  "resultLabel": "Final score",
+  "labelCorrect": "Correct",
+  "labelWrong": "Wrong",
+  "labelPct": "Percentage",
+  "btnRestart": "Try again",
+  "correct": "✓ Correct answer!",
+  "msgs": [
+    [
+      0,
+      3,
+      "Don't panic — every quiz is a lesson! 📚"
+    ],
+    [
+      4,
+      5,
+      "Good starting point. With a bit of study you can do much better! 💪"
+    ],
+    [
+      6,
+      7,
+      "Great result! You're one step away from excellence. 🎯"
+    ],
+    [
+      8,
+      9,
+      "Almost perfect! Your general knowledge is really solid. 🌟"
+    ],
+    [
+      10,
+      10,
+      "Full marks! You're unbeatable. 🏆"
+    ]
+  ],
+  "questions": [
+    {
+      "q": "What is the capital of Australia?",
+      "options": [
+        "Sydney",
+        "Melbourne",
+        "Canberra",
+        "Brisbane"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "How many planets make up the solar system?",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Who painted the Sistine Chapel?",
+      "options": [
+        "Leonardo da Vinci",
+        "Raphael",
+        "Michelangelo",
+        "Botticelli"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "In what year did the Berlin Wall fall?",
+      "options": [
+        "1987",
+        "1989",
+        "1991",
+        "1993"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "Which chemical element has the symbol 'Au'?",
+      "options": [
+        "Silver",
+        "Copper",
+        "Gold",
+        "Aluminium"
+      ],
+      "answer": 2
+    },
+    {
+      "q": "What is the largest ocean on Earth?",
+      "options": [
+        "Atlantic",
+        "Indian",
+        "Arctic",
+        "Pacific"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "Who wrote 'The Divine Comedy'?",
+      "options": [
+        "Francesco Petrarca",
+        "Dante Alighieri",
+        "Giovanni Boccaccio",
+        "Ludovico Ariosto"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "What is the approximate speed of light in a vacuum?",
+      "options": [
+        "200 000 km/s",
+        "299 792 km/s",
+        "350 000 km/s",
+        "150 000 km/s"
+      ],
+      "answer": 1
+    },
+    {
+      "q": "In which country is Machu Picchu located?",
+      "options": [
+        "Chile",
+        "Colombia",
+        "Bolivia",
+        "Peru"
+      ],
+      "answer": 3
+    },
+    {
+      "q": "How many strings does a standard classical guitar have?",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "answer": 2
+    }
+  ],
+  "wrongPrefix": "✗ The correct answer was:",
+  "questionLabel": "Question",
+  "of": "of"
+}
